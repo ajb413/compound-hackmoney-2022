@@ -83,7 +83,7 @@ window.addEventListener('load', async (event) => {
   const ethApy = await calculateApy('ETH');
   ethApyElement.innerText = ethApy.toFixed(2);
 
-  const res = await fetch('http://localhost:8080/rates/thirty/0x39aa39c021dfbae8fac545936693ac917d5e7563');
+  const res = await fetch('http://localhost:8080/rates/thirty/' + Compound.util.getAddress(Compound.cETH));
   const rawRates = await res.json();
 
   const ratesInApy = getApys(rawRates);
@@ -103,7 +103,7 @@ window.addEventListener('load', async (event) => {
     options: {
       title: {
         display: true,
-        text: 'cUSDC Interest Rate (APY)'
+        text: 'cETH Interest Rate (APY)'
       }
     }
   });
